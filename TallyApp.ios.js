@@ -19,7 +19,7 @@ var Tally = React.createClass({
       <NavigatorIOS
         style={styles.container}
         initialRoute={{
-          title: 'Movies',
+          title: 'Bills',
           component: SearchScreen,
         }}
       />
