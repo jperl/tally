@@ -1,0 +1,23 @@
+{
+	"globals": {
+		"Factory": true
+	},
+	"predef": [
+		"Accounts",
+		"App",
+		"Assets",
+		"Cordova",
+		"Dispatch",
+		"DispatchFakes",
+		"Factory",
+		"Meteor",
+		"Model",
+		"Mongo",
+		"MongoInternals",
+		"Npm",
+		"Package",
+		"Query",
+		"Random",
+		"_"
+	]
+}
