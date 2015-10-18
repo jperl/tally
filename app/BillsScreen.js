@@ -69,6 +69,8 @@ var BillsScreen = React.createClass({
                 dataSource: this.getDataSource(results),
                 isLoading: false
               });
+
+              this.selectBill(results[0]);
             });
           });
        });
@@ -80,7 +82,7 @@ var BillsScreen = React.createClass({
 
   selectBill: function(bill: Object) {
     this.props.navigator.push({
-      title: bill.title,
+      title: bill.title_without_number,
       component: BillScreen,
       passProps: {bill},
     });

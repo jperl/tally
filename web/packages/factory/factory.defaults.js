@@ -1,4 +1,9 @@
 Factory.define('bill', Query.bills, {
+  // tally
+  "image": "/prison-exterior.jpg",
+
+  // open gov
+
   "bill_resolution_type": "bill",
   "bill_type": "senate_bill",
   "bill_type_label": "S.",
@@ -110,7 +115,7 @@ Factory.define('bill', Query.bills, {
   },
   "thomas_link": "http://thomas.loc.gov/cgi-bin/bdquery/z?d112:s2318:",
   "title": "S. 2318 (112th): Department of State Rewards Program Update and Technical Corrections Act of 2012",
-  "title_without_number": "Department of State Rewards Program Update and Technical Corrections Act of 2012",
+  "title_without_number": "Smarter Sentencing Consideration Act of 2015",
   "titles": [
     [
       "short",

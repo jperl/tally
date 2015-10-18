@@ -15,11 +15,14 @@
  */
 'use strict';
 
-function getImageSource(movie: Object, kind: ?string): {uri: ?string} {
-  var uri = movie && movie.posters ? movie.posters.thumbnail : null;
-  if (uri && kind) {
-    uri = uri.replace('tmb', kind);
+function getImageSource(bill: Object): {uri: ?string} {
+  var path = bill && bill.image;
+  if (path) {
+  	path = 'http://localhost:3000' + path;
   }
+
+  var uri = path || null;
+
   return { uri };
 }
 

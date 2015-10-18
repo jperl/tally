@@ -30,49 +30,43 @@ var getStyleFromScore = require('./getStyleFromScore');
 var getTextFromScore = require('./getTextFromScore');
 
 var BillScreen = React.createClass({
+  titleUpperCase: function () {
+    return this.props.bill.title_without_number.toUpperCase();
+  },
+
   render: function() {
     return (
-      <ScrollView contentContainerStyle={styles.contentContainer}>
+      <ScrollView>
         <View style={styles.mainSection}>
           {/* $FlowIssue #7363964 - There's a bug in Flow where you cannot
             * omit a property or set it to undefined if it's inside a shape,
             * even if it isn't required */}
           <Image
-            source={getImageSource(this.props.bill, 'det')}
+            source={getImageSource(this.props.bill)}
             style={styles.detailsImage}
           />
-          <View style={styles.rightPane}>
-            <Text style={styles.movieTitle}>{this.props.bill.title}</Text>
-            <Text>{this.props.title}</Text>
-            <View style={styles.mpaaWrapper}>
-              <Text style={styles.mpaaText}>
-                {this.props.bill.mpaa_rating}
-              </Text>
-            </View>
-          </View>
+          <Text style={styles.billTitle}>{this.titleUpperCase()}</Text>
         </View>
-        <View style={styles.separator} />
-        <Text>
-          {this.props.bill.synopsis}
+        <Text style={styles.description}>
+          {this.props.bill.current_status_description}
         </Text>
-        <View style={styles.separator} />
       </ScrollView>
     );
   },
 });
 
 var styles = StyleSheet.create({
-  contentContainer: {
-    padding: 10,
+  billTitle: {
+    backgroundColor: 'transparent',
+    color: 'white',
+    fontSize: 20,
+    fontWeight: '600',
+    position: 'absolute',
+    top: 140,
+    left: 17,
   },
-  rightPane: {
-    justifyContent: 'space-between',
-    flex: 1,
-  },
-  movieTitle: {
-    flex: 1,
-    fontSize: 16,
-    fontWeight: '500',
+  description: {
+    marginVertical: 10,
   },
   rating: {
     marginTop: 10,
@@ -96,19 +90,10 @@ var styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '500',
   },
-  mainSection: {
-    flexDirection: 'row',
-  },
   detailsImage: {
-    width: 134,
     height: 200,
+    margin: 0,
     backgroundColor: '#eaeaea',
-    marginRight: 10,
-  },
-  separator: {
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    height: 1 / PixelRatio.get(),
-    marginVertical: 10,
   },
   castTitle: {
     fontWeight: '500',

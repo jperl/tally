@@ -32,7 +32,7 @@ var BillCell = React.createClass({
               * even if it isn't required */}
             <View style={styles.textContainer}>
               <Text style={styles.billTitle} numberOfLines={2}>
-                {this.props.bill.title}
+                {this.props.bill.title_without_number}
               </Text>
             </View>
           </View>
