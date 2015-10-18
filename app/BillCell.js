@@ -14,10 +14,6 @@ var {
   View
 } = React;
 
-var getStyleFromScore = require('./getStyleFromScore');
-var getImageSource = require('./getImageSource');
-var getTextFromScore = require('./getTextFromScore');
-
 var BillCell = React.createClass({
   render: function() {
     return (
