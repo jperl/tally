@@ -29,7 +29,7 @@ var getImageSource = require('./getImageSource');
 var getStyleFromScore = require('./getStyleFromScore');
 var getTextFromScore = require('./getTextFromScore');
 
-var MovieScreen = React.createClass({
+var BillScreen = React.createClass({
   render: function() {
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
@@ -38,70 +38,25 @@ var MovieScreen = React.createClass({
             * omit a property or set it to undefined if it's inside a shape,
             * even if it isn't required */}
           <Image
-            source={getImageSource(this.props.movie, 'det')}
+            source={getImageSource(this.props.bill, 'det')}
             style={styles.detailsImage}
           />
           <View style={styles.rightPane}>
-            <Text style={styles.movieTitle}>{this.props.movie.title}</Text>
-            <Text>{this.props.movie.year}</Text>
+            <Text style={styles.movieTitle}>{this.props.bill.title}</Text>
+            <Text>{this.props.title}</Text>
             <View style={styles.mpaaWrapper}>
               <Text style={styles.mpaaText}>
-                {this.props.movie.mpaa_rating}
+                {this.props.bill.mpaa_rating}
               </Text>
             </View>
-            <Ratings ratings={this.props.movie.ratings} />
           </View>
         </View>
         <View style={styles.separator} />
         <Text>
-          {this.props.movie.synopsis}
+          {this.props.bill.synopsis}
         </Text>
         <View style={styles.separator} />
-        <Cast actors={this.props.movie.abridged_cast} />
       </ScrollView>
-    );
-  },
-});
-
-var Ratings = React.createClass({
-  render: function() {
-    var criticsScore = this.props.ratings.critics_score;
-    var audienceScore = this.props.ratings.audience_score;
-
-    return (
-      <View>
-        <View style={styles.rating}>
-          <Text style={styles.ratingTitle}>Critics:</Text>
-          <Text style={[styles.ratingValue, getStyleFromScore(criticsScore)]}>
-            {getTextFromScore(criticsScore)}
-          </Text>
-        </View>
-        <View style={styles.rating}>
-          <Text style={styles.ratingTitle}>Audience:</Text>
-          <Text style={[styles.ratingValue, getStyleFromScore(audienceScore)]}>
-            {getTextFromScore(audienceScore)}
-          </Text>
-        </View>
-      </View>
-    );
-  },
-});
-
-var Cast = React.createClass({
-  render: function() {
-    if (!this.props.actors) {
-      return null;
-    }
-
-    return (
-      <View>
-        <Text style={styles.castTitle}>Actors</Text>
-        {this.props.actors.map(actor =>
-          <Text key={actor.name} style={styles.castActor}>
-            &bull; {actor.name}
-          </Text>
-        )}
-      </View>
     );
   },
 });
@@ -164,4 +119,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = MovieScreen;
+module.exports = BillScreen;

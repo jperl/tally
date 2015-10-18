@@ -11,7 +11,10 @@ var {
   StyleSheet,
 } = React;
 
-var SearchScreen = require('./SearchScreen');
+// Polyfill the process functionality needed for minimongo-cache
+global.process = require("./process.polyfill");
+
+var BillsScreen = require('./BillsScreen');
 
 var Tally = React.createClass({
   render: function() {
@@ -20,7 +23,7 @@ var Tally = React.createClass({
         style={styles.container}
         initialRoute={{
           title: 'Bills',
-          component: SearchScreen,
+          component: BillsScreen,
         }}
       />
     );
